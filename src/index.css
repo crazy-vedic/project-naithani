@@ -1,0 +1,29 @@
+.banner {
+  height: 300px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card {
+  display: flex;
+  width: 100%; /* Take up the entire width */
+  background-color: transparent; /* Make it transparent */
+  border: 1px solid #ccc; /* Optional: Add a border for visibility */
+  padding: 10px;
+  margin-bottom: 10px; /* Spacing between cards */
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.description-contact {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
