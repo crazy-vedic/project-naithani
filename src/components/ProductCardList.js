@@ -6,7 +6,7 @@ function ProductList() {
   const [displayCount, setDisplayCount] = useState(3); // Number of products to display initially
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch('http://localhost:5000/api/naithani/products')
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path')
 
 const app = express();
 const PORT = 5000;
@@ -28,7 +29,7 @@ const Product = mongoose.model('Products', ProductSchema);
 app.use(cors());
 
 // Endpoint to get all products
-app.get('/api/products', async (req, res) => {
+app.get('/products', async (req, res) => {
   try {
     const products = await Product.find({});
     console.log(req.url);
@@ -37,6 +38,8 @@ app.get('/api/products', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+app.use('/imgs', express.static(path.join(__dirname, 'src','components','imgs')));
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);

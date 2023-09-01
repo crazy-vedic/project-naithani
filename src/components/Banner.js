@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.jpg'; // Replace with the path to your logo
-import bgImage from './bg.jpg'; // Replace with the path to the Karnataka coffee fields image
+import logo from './logoNoBG.png'; // Replace with the path to your logo
 
 function Banner() {
   return (
-    <div className="banner" style={{ backgroundImage: `url(${bgImage})` }}>
+    //<div className="banner" style={{ backgroundImage: `url(${bgImage})` >
+    <div className="banner" style={{backgroundColor:'#FF8506'}}>
 <img src={logo} style={{ width: "20%" }} alt="Avery Time Logo" />
     </div>
   );

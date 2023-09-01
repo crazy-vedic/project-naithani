@@ -10,7 +10,7 @@
   display: flex;
   width: 100%; /* Take up the entire width */
   background-color: transparent; /* Make it transparent */
-  border: 1px solid #ccc; /* Optional: Add a border for visibility */
+  border: 1px solid #F1DABF; /* Optional: Add a border for visibility */
   padding: 10px;
   margin-bottom: 10px; /* Spacing between cards */
   align-items: center;
@@ -25,5 +25,10 @@
 
 .description-contact {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #F1DABF;
+}
+
+p{
+  margin-block-start:0em;
+  margin-block-end:0em;
 }

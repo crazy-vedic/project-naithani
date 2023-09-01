@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/projects/naithani/static/css/main.b0d5fde9.css",
+    "main.js": "/projects/naithani/static/js/main.4a55598d.js",
+    "static/media/logoNoBG.png": "/projects/naithani/static/media/logoNoBG.9e422303d77d6de7e8af.png",
+    "index.html": "/projects/naithani/index.html",
+    "main.b0d5fde9.css.map": "/projects/naithani/static/css/main.b0d5fde9.css.map",
+    "main.4a55598d.js.map": "/projects/naithani/static/js/main.4a55598d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0d5fde9.css",
+    "static/js/main.4a55598d.js"
+  ]
+}
