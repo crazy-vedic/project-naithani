@@ -29,7 +29,7 @@ const Product = mongoose.model('Products', ProductSchema);
 app.use(cors());
 
 // Endpoint to get all products
-app.get('/products', async (req, res) => {
+app.get('/api/products', async (req, res) => {
   try {
     const products = await Product.find({});
     console.log(req.url);
@@ -40,6 +40,8 @@ app.get('/products', async (req, res) => {
 });
 
 app.use('/imgs', express.static(path.join(__dirname, 'src','components','imgs')));
+
+
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
