@@ -1,20 +1,12 @@
+// backend/routes.js
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
 const router = express.Router();
 
-// Connect to MongoDB
-/*
-mongoose.connect('mongodb+srv://admin:pass@cluster0.tjfctuy.mongodb.net/project-Naithani?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log(`Connected to database cluster0`);
-}).catch((err) => {
-  console.log(err);
-});
-*/
+const dbConnection2 = require('./src/components/mongoose'); // Use the correct connection
+
 // Define a Product schema and model
 const ProductSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -24,7 +16,7 @@ const ProductSchema = new mongoose.Schema({
   imageUrl: String,
 });
 
-const Product = mongoose.model('Products', ProductSchema);
+const Product = dbConnection2.model('Products', ProductSchema); // Use the correct connection
 
 // Endpoint to get all products
 router.get('/api/products', async (req, res) => {
@@ -38,6 +30,6 @@ router.get('/api/products', async (req, res) => {
 });
 
 // Serve static files (images) from the root directory
-router.use('/imgs', express.static(path.join(__dirname, './project-Naithani', 'components', 'src','components','imgs')));
+router.use('/imgs', express.static(path.join(__dirname, '../../components/src/components/imgs'))); // Adjust the path
 
 module.exports = router;
