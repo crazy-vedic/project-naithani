@@ -29,7 +29,7 @@ const Product = mongoose.model('Products', ProductSchema);
 app.use(cors());
 
 // Endpoint to get all products
-app.get('/api/products', async (req, res) => {
+app.get('/products', async (req, res) => {
   try {
     const products = await Product.find({});
     console.log(req.url);
