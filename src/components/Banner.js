@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logoNoBG.png'; // Replace with the path to your logo
+import logo from './imgs/bg.jpg'; // Replace with the path to your logo
 
 function Banner() {
   return (

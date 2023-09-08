@@ -1,21 +1,32 @@
-import React, { useState, useRef} from 'react';
-import './Description.css'
+import React, { useState, useEffect } from 'react';
+import './Description.css';
 
 function DescriptionAndContact() {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const buttonRef = useRef(null); // Ref for the "Contact Us" button
+  const [formPosition, setFormPosition] = useState({ top: 0, left: 0 });
 
-  const formStyle = {};
-  if (buttonRef.current) {
-    const rect = buttonRef.current.getBoundingClientRect();
-    formStyle.top = `${rect.top}px`;
-    formStyle.left = `${rect.left}px`;
-  }
+  // Function to calculate the form position
+  const calculateFormPosition = () => {
+    const button = document.querySelector('.contact-button');
+    if (button) {
+      const rect = button.getBoundingClientRect();
+      setFormPosition({
+        top: `${rect.bottom}px`,
+        left: `${rect.left}px`,
+      });
+    }
+  };
+
+  // Effect to calculate form position when the component is mounted or isFormVisible changes
+  useEffect(() => {
+    if (isFormVisible) {
+      calculateFormPosition();
+    }
+  }, [isFormVisible]);
 
   return (
     <div className="description-container">
       <div className="contact-info">
-        <p>
         <p>
           To place an order or for any queries, please contact us at:
           <br />
@@ -23,16 +34,30 @@ function DescriptionAndContact() {
           <br />
           Email: contact@averytime.com
         </p>
-        </p>
-        <button ref={buttonRef} onClick={() => setIsFormVisible(true)}>
+        <button
+          className="contact-button"
+          onClick={() => setIsFormVisible(true)}
+        >
           Contact Us
         </button>
       </div>
 
       {isFormVisible && (
-        <div className="overlay" onClick={() => setIsFormVisible(false)}>
-          <div className="modal-form" style={formStyle} onClick={e => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setIsFormVisible(false)}>X</button>
+        <div
+          className="overlay"
+          onClick={() => setIsFormVisible(false)}
+        >
+          <div
+            className="modal-form"
+            style={formPosition}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-btn"
+              onClick={() => setIsFormVisible(false)}
+            >
+              X
+            </button>
             <form>
               <label>
                 Email:
